@@ -1,8 +1,27 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * This file is part of a FireGento e.V. module.
+ *
+ * This FireGento e.V. module is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License version 3 as
+ * published by the Free Software Foundation.
+ *
+ * This script is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * @category  FireGento
+ * @package   FireGento_Pdf
+ * @author    FireGento Team <team@firegento.com>
+ * @copyright 2014 FireGento Team (http://www.firegento.com)
+ * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
+ */
+ -->
 <config>
     <modules>
         <FireGento_Pdf>
-            <version>1.2.0</version>
+            <version>1.3.0</version>
         </FireGento_Pdf>
     </modules>
     <global>
@@ -106,6 +125,17 @@
             </modules>
         </translate>
     </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <firegento_pdf before="Mage_Adminhtml">FireGento_Pdf_Adminhtml</firegento_pdf>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
     <phpunit>
         <suite>
             <modules>
@@ -115,8 +145,11 @@
     </phpunit>
     <default>
         <sales_pdf>
+            <firegento_pdf>
+                <headerblocks_position>left</headerblocks_position>
+            </firegento_pdf>
             <invoice>
-                <engine />
+                <engine/>
                 <show_customer_number>1</show_customer_number>
                 <show_date_notice>0</show_date_notice>
                 <maturity/>
@@ -128,17 +161,20 @@
                 <show_item_discount>0</show_item_discount>
             </invoice>
             <shipment>
-                <engine />
+                <engine/>
                 <show_customer_number>1</show_customer_number>
                 <shipping_method_position/>
                 <note/>
                 <order_id_as_barcode>0</order_id_as_barcode>
             </shipment>
             <creditmemo>
-                <engine />
+                <engine/>
                 <show_customer_number>1</show_customer_number>
                 <note/>
             </creditmemo>
+            <firegento_pdf>
+                <logo_ratio>100</logo_ratio>
+            </firegento_pdf>
         </sales_pdf>
         <tax>
             <sales_display>
